@@ -1,1 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contenido exclusivo</title>
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      background: #111;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 16px;
+    }
+    #numero { font-size: 6rem; font-weight: bold; }
+    img { max-width: 90%; max-height: 70vh; border-radius: 12px; }
+    #sorpresa { display: none; }
+  </style>
+</head>
+<body>
+  <div id="espera">
+    <h1>Tu contenido exclusivo se desbloquea en...</h1>
+    <div id="numero">5</div>
+  </div>
 
+  <div id="sorpresa">
+    <h1>¡Caíste! 😂</h1>
+    <img src="risa.jpg" alt="Jajaja">
+  </div>
+
+  <script>
+    let n = 5;
+    const numero = document.getElementById("numero");
+    const timer = setInterval(() => {
+      n--;
+      numero.textContent = n;
+      if (n <= 0) {
+        clearInterval(timer);
+        document.getElementById("espera").style.display = "none";
+        document.getElementById("sorpresa").style.display = "block";
+      }
+    }, 1000);
+  </script>
+</body>
+</html>
